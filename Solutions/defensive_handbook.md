@@ -356,4 +356,5 @@ An API is the main component of this challenge. It handles requests to show user
 
 ## References
 [1] https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview
+
 [2] https://learn.microsoft.com/en-us/azure/sentinel/data-connectors/nginx-http-server
