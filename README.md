@@ -48,7 +48,7 @@ Flag Format: Purple{...}
 
 
 #### Challenge 4: Fetch the Flag (API Edition)
-There's a API for employees in the PurpleCloud environment! Bob keeps forgetting the name of the endpoint - do you have a better memory?
+There's a API endpoint for employees in the PurpleCloud environment running on https://purplecloud-api.azurewebsites.net! Bob keeps forgetting the name of the endpoint - do you have a better memory?
 
 Entry Point: API Endpoint
 
