@@ -1,4 +1,4 @@
-# PurpleCloudb Testphase
+# PurpleCloud Testphase
 
 ## Questionnaire
 After completion of both parts, please take the time to visit the following link and answer the questions there:
