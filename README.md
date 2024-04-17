@@ -23,8 +23,6 @@ The company *PurpleCloud* is hosting a private cloud environment for some time n
 
   
 ### Offensive Challenges
-
-
 #### Challenge 1: Blob Hunt
 First, you should take a look at the static PaaS web application 'PurpleWiki'. 
 
@@ -58,11 +56,15 @@ Flag Format: Purple{...}
 
 
 ## Defensive Part
-
 ### Introduction
+After conducting the penetration test, the CISO will also ask you to review the relevant resources in the Azure cloud and discover the issues identified. Your work will have a direct impact on the security posture of the cloud environment, helping to identify and close vulnerabilities, enforce security policies, enable monitoring for resources and ultimately protect the organisation from potential compromise. Look at the big picture and try to find the vulnerabilities and misconfigurations that will be reported to the CISO so they can take corrective action and implement a security strategy.
+
+**Please read the rules first and the move to the `defensive_handbook.md` in the solutions directory to guide you through this defensive part.**
 
 ### Rules
-
-
-
-
+* Once you have completed the offensive part and are aware of the possible vulnerabilities and misconfigurations, you can log in to the Azure portal with your own Azure account.
+* Respect the time limit so we can correctly analyse your progress and compare it fairly with the other participants.
+* You are allowed to examine all resources provided in the resource group ("purple-cloud-rg") and analyse their configurations.
+* You should follow the blue teaming handbook, which will guide you through the defense part and contains information on misconfiguration, corrective defensive measures and monitoring which can be enabled.
+* You can perform all corrective measures within the Azure portal.
+* You are allowed to skip configuration steps in case something does not work as expected and takes up too much time. You can always come back later the open points and complete them afterwards. In case you are not able to 
