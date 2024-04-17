@@ -44,7 +44,7 @@
 ```cmd=ls%20../../../../home/localadmin/log```
 * Recognize there is a file ```api.log``` in the directory and read it:
 ```cmd=cat%20../../../../home/localadmin/log/api.log```
-* find the name the API endpoint in the log file
+* find the name of the API endpoint and an example for an API request in the log file
 * Now go back to the home directory and read the ```id_rsa``` file:
 ```cmd=cat%20../../../../home/localadmin/id_rsa```
 * Notice that this is a private key file and save the contents from the page source code (to keep the proper format) as a .pem file.
@@ -101,7 +101,7 @@ Address:  52.233.176.34
 
 
 ## Challenge 4: Fetch the Flag (API Edition)
-* The entry point for this challenge is the API endpoint accessible via https://purplecloud-api.azurewebsites.net/api/user (the name of the endpoint is the first flag vom challenge 2)
+* The entry point for this challenge is the API endpoint accessible via https://purplecloud-api.azurewebsites.net/api/user (the name of the endpoint is the first flag vom challenge 2. Additionally, the paramter **id** should have been retrieved from the log file in challenge 2)
 * Note that you can't access some of the existing profiles (e.g. request ```/api/user?id=1```):
 
 ![](https://i.imgur.com/XWUGiJh.png)
