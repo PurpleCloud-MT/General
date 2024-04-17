@@ -1,7 +1,7 @@
 # PurpleCloudb Testphase
 
 ## Questionnaire
-After completion, please take the time to visit the following link and answer the questions there:
+After completion of both parts, please take the time to visit the following link and answer the questions there:
 https://docs.google.com/forms/d/e/1FAIpQLSfMdUnj3i6Rx_q78RpIEV70VlTUnNnY7sx7QgqAKL3jwvAKkQ/viewform?usp=sf_link
 
 ## Offensive Part
