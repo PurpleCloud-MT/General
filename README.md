@@ -1,5 +1,9 @@
 # PurpleCloudb Testphase
 
+## Questionnaire
+After completion, please take the time to visit the following link and answer the questions there:
+https://docs.google.com/forms/d/e/1FAIpQLSfMdUnj3i6Rx_q78RpIEV70VlTUnNnY7sx7QgqAKL3jwvAKkQ/viewform?usp=sf_link
+
 ## Offensive Part
 
 ### Introduction
@@ -12,7 +16,7 @@ The company *PurpleCloud* is hosting a private cloud environment for some time n
 * You are allowed to look at the solutions if you are stuck to get further going but if you do that please state that you did in the questionnaire
 * Due to the time limit, we also want to encourage you to look at the solutions if you are noticing you are taking too much time for a challenge
 * To solve a challenge, you need to find the according flag(s)
-* Please note, the flags aren't the only thing you want to find! In some challenges there are hidden hints which you probably need to solve the following challenges. 
+* Please note that the flags aren't the only thing you want to find! In some challenges there are hidden hints which you probably need to solve the following challenges. 
   
 ### Offensive Challenges
 
