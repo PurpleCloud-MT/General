@@ -59,7 +59,7 @@ Flag Format: Purple{...}
 ### Introduction
 After conducting the penetration test, the CISO will also ask you to review the relevant resources in the Azure cloud and discover the issues identified. Your work will have a direct impact on the security posture of the cloud environment, helping to identify and close vulnerabilities, enforce security policies, enable monitoring for resources and ultimately protect the organisation from potential compromise. Look at the big picture and try to find the vulnerabilities and misconfigurations that will be reported to the CISO so they can take corrective action and implement a security strategy.
 
-**Please read the rules first and the move to the `defensive_handbook.md` in the solutions directory to guide you through this defensive part.**
+**Please read the rules first and then move to the `defensive_handbook.md` in the solutions directory to guide you through this defensive part.**
 
 ### Rules
 * Once you have completed the offensive part and are aware of the possible vulnerabilities and misconfigurations, you can log in to the Azure portal with your own Azure account.
