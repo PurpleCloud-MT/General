@@ -30,14 +30,29 @@ Flag Format: PURPLE{...}
 #### Challenge 2: FindMe.log
 PurpleCloud hosts another web application in the environment. This one is called PurpleBlog and is using an IaaS service model.
 
-EntryPoint: http://purpleblog.westeurope.cloudapp.azure.com:8080/
+Entry Point: http://purpleblog.westeurope.cloudapp.azure.com:8080/
 
 Flag Format: There are two flags in this challenge! The first one is the name of the API endpoint and the second one is the SSH private key.
 
+#### Challenge 3: What is the key to the vault?
+You found a way to access the VM! But now what?
 
-## introduction def
+Entry Point: VM
 
-## rules def
+Flag Format: Purple{...}
+
+#### Challenge 4: Fetch the Flag (API Edition)
+There's a API for employees in the PurpleCloud environment! Bob keeps forgetting the name of the endpoint - do you have a better memory?
+
+Entry Point: API Endpoint
+
+Flag Format: Purple{...}
+
+## Defensive Part
+
+### Introduction
+
+### Rules
 
 
 
