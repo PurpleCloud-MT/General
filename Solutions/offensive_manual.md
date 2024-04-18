@@ -1,7 +1,7 @@
 # PurpleCloud Offensive Manual
 
 ## Challenge 1: Blob Hunt 
-* Entry Point is the PurpleWiki static webapplication:
+* Entry Point is the PurpleWiki static web application:
 
 ![](https://i.imgur.com/ztYAkZP.png)
 
@@ -24,7 +24,7 @@
 > PURPLE{PU8L1C_BL08}
 
 ## Challenge 2: FindMe.log
-* Entry Point is the Purple Blog Webapplication:
+* Entry Point is the Purple Blog web application:
 
 ![](https://i.imgur.com/aFNpl3P.png)
 * Note that the newsletter section includes user input fields:
@@ -35,11 +35,11 @@
 ![](https://i.imgur.com/ME9nyzu.png)
 * After submitting the form, realize you are getting redirected to the following page:
 ```/api/process.php?```
-* Attempt to exploit a simple OS command injection by the following and notice that it works: 
+* Attempt to exploit a simple OS command injection by appending the following to the URL and notice that it works: 
 ```process.php?cmd=whoami```
 * Execute a ```ls``` command to access the local filesystem of the Azure VM Resource and look at the content of the localadmin home directory: 
 ```cmd=ls%20../../../../home/localadmin/```
-* Note there is a file ```id_rsa``` and a directory ```log```
+* Note there is a file ```id_rsa``` and a directory ```log```.
 * Look at the contents of the ```log``` directory:
 ```cmd=ls%20../../../../home/localadmin/log```
 * Recognize there is a file ```api.log``` in the directory and read it:
@@ -70,6 +70,7 @@ Address:  52.233.176.34
 * In the output you can see that in the Key Vault there are two secrets stored, namely **user** and **credential**.
 * Now that you have obtained the names of the secrets, you can use them to read the contents with the following command: 
 ```az keyvault secret show --vault-name purple-secrets -n user```
+
 ```az keyvault secret show --vault-name purple-secrets -n credential```
 
 ![](https://i.imgur.com/c8PrAc7.png)
@@ -80,7 +81,7 @@ Address:  52.233.176.34
     * Value of secret **user**: servicepurplecloud@cloudexec.onmicrosoft.com
     * Value of secret **credential**: PurpleCloudDragon123
 * You got yourself plaintext credentials for the PurpleCloud service account
-* Use these credentials to login to the azure portal:
+* Use these credentials to login to the Azure portal:
 
 ![](https://i.imgur.com/g2T1jR4.png)
 * Once logged in, navigate to 'All resources'.
@@ -116,7 +117,7 @@ Address:  52.233.176.34
 * Now attempt to request the user with the ID 42 (request ```/api/user?id=42```)and note that this user cannot be found: 
 
 ![](https://i.imgur.com/r2l9Pgd.png)
-* Take one step back and request the user with the ID 8 (request ```/api/user?id=8```) again
+* Take one step back and request the user with the ID 8 (request ```/api/user?id=8```) again.
 * Now note that there is an IDOR vulnerability which allows you to switch to any profile by editing the ID in the URL
 * Attempt to access the profile of the user with the ID 42 using this approach and find the flag.
 
