@@ -68,7 +68,8 @@ Address:  52.233.176.34
 ![](https://i.imgur.com/Dpe44B7.png)
 
 * In the output you can see that in the Key Vault there are two secrets stored, namely **user** and **credential**.
-* Now that you have obtained the names of the secrets, you can use them to read the contents with the following command: 
+* Now that you have obtained the names of the secrets, you can use them to read the contents with the following commands:
+   
 ```az keyvault secret show --vault-name purple-secrets -n user```
 
 ```az keyvault secret show --vault-name purple-secrets -n credential```
