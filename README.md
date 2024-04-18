@@ -66,5 +66,5 @@ After conducting the penetration test, the CISO will also ask you to review the 
 * Timelimit: 1 hour - respect the time limit so we can correctly analyse your progress and compare it fairly with the other participants.
 * You are allowed to examine all resources provided in the resource group ("purple-cloud-rg") and analyse their configurations.
 * You should follow the blue teaming handbook, which will guide you through the defense part and contains information on misconfiguration, corrective defensive measures and monitoring which can be enabled.
-* You can perform all corrective measures within the Azure portal.
-* You are allowed to skip configuration steps in case something does not work as expected and takes up too much time. You can always come back later to the open points and complete them afterwards. If you are unable to complete a defensive task/challenge, briefly share your experience in the questionnaire.
+* You are encouraged to implement corrective measures within the Azure portal as time allows. Given time limit, you are not expected to implement all measures (but you can). Instead, prioritize understanding the steps by reading through the Blue Teaming Handbook.
+* If time constraints prevent you from implementing any corrective measures, or if technical issues arise, you are advised to skip these steps temporarily. You can always review later and complete them afterwards. If a defensive task/challenge cannot be completed,  briefly share your experience in the questionnaire.
