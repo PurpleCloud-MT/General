@@ -2,7 +2,7 @@
 ## Introduction
 After conducting the penetration test, the CISO will also ask you to review the relevant resources in the Azure cloud and discover the issues identified. Your work will have a direct impact on the security posture of the cloud environment, helping to identify and close vulnerabilities, enforce security policies, enable monitoring for resources and ultimately protect the organisation from potential compromise. Look at the big picture and try to find the vulnerabilities and misconfigurations that will be reported to the CISO so they can take corrective action and implement a security strategy.
 ### Overview
-This handbook consists of four manuals highlighting the misconfigurations and threats associated with the cloud security challenges within PurpleCloud and show the mitigation/remediation steps from a defensive perspective. A participant should follow this handbook after taking the offensive part of the project to understand and learn where the flaws are in the Azure resources exposed that allow an attacker to exploit them.
+This handbook consists of four manuals highlighting the misconfigurations and threats associated with the cloud security challenges within PurpleCloud and show the mitigation/remediation steps from a defensive perspective. A participant should follow this handbook after finishing the offensive part of the project to understand and learn where the flaws are in the Azure resources exposed that allow an attacker to exploit them.
 
 It reinforces learning by providing hands-on Blue Teaming experiences directly in Azure and following the steps along with configuration facts. This approach provides a comprehensive understanding of each vulnerability from both an attack and defense perspective.
 
@@ -14,7 +14,7 @@ It reinforces learning by providing hands-on Blue Teaming experiences directly i
 
 ### Azure Access
 * You received your dedicated access via your Azure account to the "PurpleCloud" tenant.
-* After login in the [Azure portal](https://portal.azure.com) you may need to switch directory if you do not see "PurpleCloud" directly in the top right-hand corner. To do this, click on your account name in the top right-hand corner and select 'Switch directory', where you can select the "PurpleCloud" tenant:
+* After login into the [Azure portal](https://portal.azure.com) you may need to switch directory if you do not see "PurpleCloud" directly in the top right-hand corner. To do this, click on your account name in the top right-hand corner and select 'Switch directory', where you can select the "PurpleCloud" tenant:
 
 ![](https://i.imgur.com/mQwQRmb.png)
 ![](https://i.imgur.com/XsLgrfd.png)
@@ -67,13 +67,13 @@ Due to the configuration the container is accessible and can also be enumerated:
 ![](https://i.imgur.com/SrZ2NBP.png)
 
 ##### Storage Account
-* Directly in the Storage Account overview we can see the properties of the resource in one view and identify misconfigurations:
+* Directly in the storage account overview, we can see the properties of the resource in a single view and identify misconfigurations:
 
 ![](https://i.imgur.com/LBg2JKd.png)
 * Under `Encryption` we can see that the PurpleCloud organization is using the Microsoft-managed keys for encryption which should be switched to Customer-managed keys if possible to ensure full confidentiality of restricted data:
 
 ![](https://i.imgur.com/p3v7866.png)
-* The container `webcontent` is enumerateable since the anonymous access level is set to container:
+* The container `webcontent` can be enumerated, as the anonymous access level is set to "container":
 
 ![](https://i.imgur.com/MtllOo6.png)
 
@@ -99,7 +99,7 @@ Tip: The configurations can also be accessed via the storage account overview.
 * With soft-delete enabled data can be restored for a specific period of time, in case an error happens. `Data Management` --> `Data protection` --> `Recovery` is where both blob and container soft delete can be enabled.
 
 ![](https://i.imgur.com/NpBQSXq.png)
-* To demonstrate the soft delete behavior you can head over the `Data storage` --> `Container` and toggle the following switch on the right side to see also deleted containers. A hidden container will appear which was previously deleted while soft delete was enabled.
+* To demonstrate the soft delete behavior you can head over to `Data storage` --> `Container` and toggle the following switch on the right side to also see deleted containers. A hidden container will appear which was previously deleted while soft delete was enabled.
 
 ![](https://i.imgur.com/oxKctU3.png)
  
@@ -121,12 +121,12 @@ Tip: The configurations can also be accessed via the storage account overview.
 
 ---
 #### > MONITOR <
-* To enable monitoring of the Storage Account which can be used with Microsoft Sentinel (cloud-native SIEM + SOAR solution)
-* We can navigate to the "Monitoring" section and then select "Diagnostic settings". Here we can select "blob" for the storage account and proceed with the creation of a diagnostic setting.
+* To enable monitoring of the Storage Account which can be used with Microsoft Sentinel (cloud-native SIEM + SOAR solution) we can navigate to the "Monitoring" section and then select "Diagnostic settings".
+* Here we can select "blob" for the storage account and proceed with the creation of a diagnostic setting.
 
 ![](https://i.imgur.com/rT5qLcW.png)
 ![](https://i.imgur.com/VOQ4eVd.png)
-* We specify a diagnostic setting name, e.g. "blob-audit" and select the the audit logs and send them to the Log Analytics Workspace `purple-we-law` which is stores the data used by Microsof Sentinel, and save this setting.
+* We specify a diagnostic setting name, e.g. "blob-audit" and select the the audit logs and send them to the Log Analytics Workspace `purple-we-law` which stores the data used by Microsof Sentinel, and save this setting.
 
 ![](https://i.imgur.com/TjVXksA.png)
 * We can now open Microsoft Sentinel by searching for it and selecting the previously specified log analytics workspace.
@@ -161,26 +161,26 @@ It includes a command injection vulnerability which can be used by an attacker t
 
 ![](https://i.imgur.com/OHUBlTH.png)
 * The main component is the virtual machine `purpleblog`, for which the other resources such as public IP address, virtual network, network security group (NSG) as well as the network interface card and OS disk are provisioned.
-* Lets take a look at virtual machine and investigate how it is configured
+* Lets take a look at the virtual machine and investigate how it is configured
 
 ![](https://i.imgur.com/1r2Su6p.png)
 * It is evident that is an Ubuntu 20.04. machine that is assigned a public IP address with a DNS name. The virtual machine is located in a virtual network called `purpleblog-vnet`, for which we can check the NSG rules as well as for the machine itself
-* Taking a look at the `Network Settings` we can find that SSH on the default port 22 and port 8080 for the web application are opened.
+* Take a look at the `Network settings` to see that SSH is open on the default port 22 and port 8080 for the web application.
 
 ![](https://i.imgur.com/uIYcBbK.png)
-* We can see that SSH has warning sign which when we click on the rule tells us that the best practice is to not expose SSH to the Internet in productive environments to prevent compromise
+* We can see that SSH has a warning sign which when we click on the rule tells us that the best practice is to not expose SSH to the Internet in productive environments to prevent compromise
 
 ![](https://i.imgur.com/T4ZpzCb.png)
 * Going into the `Disks` setting we can check out if the disk is encrypted or not. For this let us select `Additional settings`
 
 ![](https://i.imgur.com/EoDGNjq.png)
-* Here we can clearly see that the virtual machine
+* Here we can clearly see that the disk of the virtual machine is not encrypted at the moment.
 
 ![](https://i.imgur.com/VzYcCGU.png)
 * Next, there is the `Identity` under the Security section which tells us that a managed identity exists and has permissions to perform actions in Azure. This is not a misconfiguration but rather a best-practice approach allowing access of the VM to other Azure resources.
 
 ![](https://i.imgur.com/CMMjGJJ.png)
-* It shows that can access the "purple-secrets" Azure Key Vault and read the values stored in the key vault
+* It shows that it can access the `purple-secrets` Azure Key Vault and read the values stored in the key vault
 
 ![](https://i.imgur.com/ALUFAuK.png)
 * As we can see the virtual machine is not being monitored at the moment
@@ -189,7 +189,7 @@ It includes a command injection vulnerability which can be used by an attacker t
 * Last but not least, we can view the vulnerable part of the code in the GitHub repository under `Defense_Resouces` in the file `process.php`
 
 ![](https://i.imgur.com/8WdouPK.png)
-* Here we can observe that PHP is used and expects a GET parameter `cmd`, which executes passed arguments on the virtual machine.
+* Here we can observe that PHP is used and expects a GET parameter `cmd`, which executes the passed arguments on the virtual machine.
 
 **Misconfigurations:**
 1. SSH access via public IP address
@@ -205,7 +205,7 @@ It includes a command injection vulnerability which can be used by an attacker t
 
 ![](https://i.imgur.com/JFCsQxk.png)
 * To have some monitoring of the server we will discuss the approach in the next section *"MONITOR"*
-* For poor software development we can note this down a let the CISO know about the vulnerable piece of code which needs to be removed. It makes sense to start with some CI/CD best-pratices to do some vulnerability checks/scans before the code is deployed into production. 
+* For poor software development we can note this down and let the CISO know about the vulnerable piece of code which needs to be removed. It makes sense to start with some CI/CD best-pratices to do some vulnerability checks/scans before the code is deployed into production. 
 
 #### MONITOR
 * To enable monitoring lets go directly into Microsoft Sentinel where for NGINX there is a data connector we can use to monitor the logs of the NGINX server running on the virtual machine
@@ -216,10 +216,9 @@ It includes a command injection vulnerability which can be used by an attacker t
 
 ![](https://i.imgur.com/7S4M0YO.png)
 ![](https://i.imgur.com/n7BO2nu.png)
-* After it is connected we can move into configuring the log collection by creating a NGINX custom table
+* After it is connected we can move into configuring the log collection and check if a NGINX custom table is already created
 
 ![](https://i.imgur.com/poEPjrF.png)
-![](https://i.imgur.com/B1xX5hp.png)
 * An table was already created beforehand and will be automatically populated with logs when there are new NGINX logs on the virtual machine. For reference we can check if the table exists
 
 ![](https://i.imgur.com/fAXodXD.png)
@@ -237,7 +236,7 @@ It includes a command injection vulnerability which can be used by an attacker t
 *Type:* Azure Cosmos DB account
 
 ### Scenario Overview
-Following up from Challenge 2, the managed identity of the virtual machine provides read access to the Azure Key Vault where two secrets are stored containing the password and the username which is also evident from the log file located on the virtual machine. With these two pieces of information, the attacker can log in as the Purple Cloud service account user. This user has access to the Cosmos DB and can access the the data. If that is not enough the user has a pretty weak password which could be also brute forced.
+Following Challenge 2, the managed identity of the virtual machine provides read access to the Azure Key Vault where two secrets are stored containing the password and the username which is also evident from the log file located on the virtual machine. With these two pieces of information, the attacker can log in as the Purple Cloud service account user. This user has access to the Cosmos DB and can access the data. If that is not enough the user has a pretty weak password which could also be bruteforced.
 
 ### Defensive Path
 #### REVIEW & IDENTIFY
@@ -247,14 +246,18 @@ Following up from Challenge 2, the managed identity of the virtual machine provi
 ![](https://i.imgur.com/AxA88oW.png)
 
 ##### Azure Key Vault
-* The Azure Key Vault called `purple-secrets` can store various secret material such as keys, secrets and certificates. Therefore it is important that it is configured the best way as possible to minimize risk.
-* Interesting settings we can check are:
+* The Azure Key Vault called `purple-secrets` can store various secret material such as keys, secrets and certificates. Therefore it is important that it is configured the best way possible to minimize risk.
+* Interesting settings we can check:
 
 ![](https://i.imgur.com/dNqniXr.png)
-    * Access Control (IAM)
-    * Access configuration
-    * Networking
-    * Monitoring
+--> Access Control (IAM)
+
+--> Access configuration
+
+--->Networking
+
+--> Monitoring
+
 * We can see that the managed identity of the `purple-blog` virtual machine has access to the key vault secrets and can read the key vault itself. This is why on the offensive part we were able to access the key vault secrets.
 
 ![](https://i.imgur.com/lfznSHh.png)
@@ -265,7 +268,7 @@ Following up from Challenge 2, the managed identity of the virtual machine provi
 * In the `Networking` configuration we can identify that the Key Vault is publicly accessible which should be mitigated.
 
 ![](https://i.imgur.com/pGK8wH0.png)
-* Monitoring for this resource is not enable but can be done via the diagnostics settings in the next sections.
+* Monitoring for this resource is not enabled but can be done via the diagnostics settings showcased in section "Monitoring".
 
 ![](https://i.imgur.com/an9rRRq.png)
 
@@ -279,14 +282,14 @@ Following up from Challenge 2, the managed identity of the virtual machine provi
 * Similar to the key vault, the Cosmos DB is also publicly accessible, which is not necessary in this case as only an internal user has read access. 
 
 ![](https://i.imgur.com/ESSqDGX.png)
-* Also, under the the `Monitoring` there are no measure in place, i.e. no diagnostic settings available at the moment.
+* Also, under `Monitoring` there are no measures in place, i.e. no diagnostic settings available at the moment.
 
 **Misconfigurations:**
 1. Unnecessary full public access for both resources
-2. Service Account has not yet MFA enforced, therefore it was easy for the attacker to access Azure with the email and password.
+2. Service Account has not yet enforced MFA, so it was easy for the attacker to access Azure with the email and password.
 
 #### MITIGATE
-* In order to limit the access we can specify specific IP addresses which can access the key vault. For this example we can use the public IP address of the virtual machine or our own client IP.
+* In order to limit the access we can specify IP addresses which can access the key vault. For this example, we can use the public IP address of the virtual machine or our own client IP.
 
 ![](https://i.imgur.com/cTvdb14.png)
 * When only adding the IP of the VM and applying the changes we are not able to view the key vault anymore
@@ -296,19 +299,22 @@ Following up from Challenge 2, the managed identity of the virtual machine provi
 
 ![](https://i.imgur.com/Xjhbvff.png)
 * Here we can add our own client IP and/or allow access from Azure Portal.
-* Ultimately, enforcing MFA as a mandatory requirement for all accounts in the organisation would stop part of the attack when the intruder logs in as a service account user.
+* Ultimately, enforcing MFA as a mandatory requirement for all accounts in the organisation would stop a part of the attack when the intruder logs in as a service account user.
 
 #### MONITOR
-* Both resources can be monitored, hence audit logs collected and analyzed. For this we can use the same approach as for previous challenges where we added diagnostic settings to forward to logs to the log analytics workspace / Sentinel.
+* Both resources can be monitored so that audit logs collected and analyzed. For this we can use the same approach as for previous challenges where we added diagnostic settings to forward logs to the log analytics workspace / Sentinel.
 
 **Azure Key Vault**
 ![](https://i.imgur.com/NfH97Tz.png)
 ![](https://i.imgur.com/DDGeqg3.png)
+
 **Azure Cosmos DB**
 ![](https://i.imgur.com/IH9etzG.png)
 ![](https://i.imgur.com/HORnF22.png)
 
 * After some time we can see in Sentinel that the logs are correctly ingested and can be further analyzed.
+**Hint: It can take about 5 minutes that logs are ingested in the table. Therefore you can try to access a blob file and come back later to check the logs.**
+
 ![](https://i.imgur.com/h5FmPRl.png)
 ![](https://i.imgur.com/sLEOdyA.png)
 ![](https://i.imgur.com/UQEnV6N.png)
@@ -320,15 +326,15 @@ Following up from Challenge 2, the managed identity of the virtual machine provi
 *Type:* Function App
 
 ### Scenario Overview
-An API is the main component of this challenge. It handles requests to show user details and is misconfigured so that some users can be leaked by entering the correct ID as an URL parameter. The vulnerability involved here is a type of Insecure direct object reference (IDOR). 
+An API is the main component of this challenge. It handles requests to show user details and is misconfigured so that some user information is exposed by entering the correct ID as an URL parameter. The vulnerability involved here is a type of Insecure direct object reference (IDOR).
 
 ### Defensive Path
 #### REVIEW & IDENTIFY
 * Lets start from the resource group overview again (mentioned under section "Azure Access")
-* The Azure Resource in scope for Challenge 4 are:
+* The Azure Resource in scope for Challenge 4 is:
 
 ![](https://i.imgur.com/kyHErG1.png)
-* Looking at the different configurations there are not specific issues which make the function app more vulnerable. Still, we can take a look at the code itself by checking the `function_app.py` in the `App files`.
+* Looking at the different configurations there are no specific issues which make the function app more vulnerable. Still, we can take a look at the code itself by checking the `function_app.py` in the `App files`.
 
 ![](https://i.imgur.com/Il6cBvK.png)
 * Most of the code is not yet ready for production and has been deployed without a security check or code review. 
