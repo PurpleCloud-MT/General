@@ -1,5 +1,9 @@
 # PurpleCloud Testphase
 
+<p align="center">
+  <img src="images/purple-cloud_header.png"/>
+</p>
+
 ## Questionnaire
 After completion of both parts, please take the time to visit the following link and answer the questions there:
 https://docs.google.com/forms/d/e/1FAIpQLSfMdUnj3i6Rx_q78RpIEV70VlTUnNnY7sx7QgqAKL3jwvAKkQ/viewform?usp=sf_link
