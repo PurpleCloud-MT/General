@@ -9,7 +9,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSfMdUnj3i6Rx_q78RpIEV70VlTUnNnY7sx7QgqA
 
 
 ### Introduction
-The company *PurpleCloud* is hosting a private cloud environment for some time now. The CISO of the organization has a gut feeling that some of the resources are misconfigured and that several employees are handling security relevant information not exactly careful. Because of that, the CISO wants you to perform a black-box penetration test targeting the *PurpleCloud* cloud environement with the objective to discover all misconfigurations and vulnerabilities. The catch is that the CISO has a very tight schedule since the company plans to move the webapplications into production very soon. This means you are given only one hour to complete the penetration test and find all vulnerabilities in the system. To get started you should take a look at the PaaS webapplication PurpleWiki...
+The company *PurpleCloud* is hosting a private cloud environment in Microsoft Azure for some time now. The CISO of the organization has a gut feeling that some of the resources are misconfigured and that several employees are handling security relevant information not exactly careful. Because of that, the CISO wants you to perform a black-box penetration test targeting the *PurpleCloud* cloud environement with the objective to discover all misconfigurations and vulnerabilities. The catch is that the CISO has a very tight schedule since the company plans to move the webapplications into production very soon. This means you are given only one hour to complete the penetration test and find all vulnerabilities in the system. To get started you should take a look at the PaaS webapplication PurpleWiki...
 
 
 ### Rules
