@@ -57,7 +57,7 @@ Flag Format: Purple{...}
 
 ## Defensive Part
 ### Introduction
-After conducting the penetration test, the CISO will also ask you to review the relevant resources in the Azure cloud and discover the issues identified. Your work will have a direct impact on the security posture of the cloud environment, helping to identify and close vulnerabilities, enforce security policies, enable monitoring for resources and ultimately protect the organisation from potential compromise. Look at the big picture and try to find the vulnerabilities and misconfigurations in one hour that will be reported to the CISO so they can take corrective action and implement a security strategy.
+After conducting the penetration test, the CISO will also ask you to review the relevant resources in the Azure cloud and discover the issues identified. Your work will have a direct impact on the security posture of the cloud environment, helping to identify and close vulnerabilities, enforce security policies, enable monitoring for resources and ultimately protect the organisation from potential compromise. Look at the big picture and try to find the vulnerabilities and misconfigurations that will be reported to the CISO so they can take corrective action and implement a security strategy. You have one hour to investigate the Azure cloud environment.
 
 **Please read the rules first and then move to the `defensive_handbook.md` in the solutions directory to guide you through this defensive part.**
 
@@ -67,4 +67,4 @@ After conducting the penetration test, the CISO will also ask you to review the 
 * You are allowed to examine all resources provided in the resource group ("purple-cloud-rg") and analyse their configurations.
 * You should follow the blue teaming handbook, which will guide you through the defense part and contains information on misconfiguration, corrective defensive measures and monitoring which can be enabled.
 * You can perform all corrective measures within the Azure portal.
-* You are allowed to skip configuration steps in case something does not work as expected and takes up too much time. You can always come back later the open points and complete them afterwards. In case you are not able to 
+* You are allowed to skip configuration steps in case something does not work as expected and takes up too much time. You can always come back later to the open points and complete them afterwards. If you are unable to complete a defensive task/challenge, briefly share your experience in the questionnaire.
