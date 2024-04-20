@@ -10,8 +10,8 @@
 
 ![](https://i.imgur.com/1adty2B.png)
 * This indicates, that the image is included from a custom Azure Blob Storage resource.
-* Try to enumerate the storage by appending ```/restype=container&comp=list``` to the container link:
-```https://purpleconfidential.blob.core.windows.net/webcontent/restype=container&comp=list```
+* Try to enumerate the storage by appending ```?restype=container&comp=list``` to the container link:
+```https://purpleconfidential.blob.core.windows.net/webcontent?restype=container&comp=list```
 * The request returns an XML file as response which provides a listing of the container contents:
 
 ![](https://i.imgur.com/02AF02G.png)
