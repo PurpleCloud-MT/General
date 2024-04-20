@@ -130,7 +130,7 @@ Tip: The configurations can also be accessed via the storage account overview.
 
 ![](https://i.imgur.com/rT5qLcW.png)
 ![](https://i.imgur.com/VOQ4eVd.png)
-* We specify a diagnostic setting name, e.g. "blob-audit" and select the the audit logs and send them to the Log Analytics Workspace `purple-we-law` which stores the data used by Microsof Sentinel, and save this setting.
+* We specify a diagnostic setting name, e.g. "blob-audit" and select the the audit logs and send them to the Log Analytics Workspace `purple-we-law` which stores the data used by Microsoft Sentinel, and save this setting.
 
 ![](https://i.imgur.com/TjVXksA.png)
 * We can now open Microsoft Sentinel by searching for it and selecting the previously specified log analytics workspace.
@@ -348,6 +348,7 @@ An API is the main component of this challenge. It handles requests to show user
 
 #### MITIGATE
 * The only mitigation is to establish a secure software development cycle that includes code review. CI/CD can generally be a good start here.
+* For poor software development we can note this down and let the CISO know about the vulnerable piece of code which needs to be refactored. It makes sense to start with some CI/CD best-pratices to do some vulnerability checks/scans before the code is deployed into production. 
 * To fix the bug as quickly as possible, we remove the if condition in the code as well as the second if statement and save the file, which the API automatically redeploys.
 
 ![](https://i.imgur.com/U2Sl9xx.png)
