@@ -1,6 +1,6 @@
 # Purple Cloud - Blue Teaming Handbook
 ## Introduction
-After conducting the penetration test, the CISO will also ask you to review the relevant resources in the Azure cloud and discover the issues identified. Your work will have a direct impact on the security posture of the cloud environment, helping to identify and close vulnerabilities, enforce security policies, enable monitoring for resources and ultimately protect the organisation from potential compromise. Look at the big picture and try to find the vulnerabilities and misconfigurations that will be reported to the CISO so they can take corrective action and implement a security strategy.
+After conducting the penetration test, the CISO will also ask you to review the relevant resources in the Azure cloud and discover the issues identified. Your work will have a direct impact on the security posture of the cloud environment, helping to identify and close vulnerabilities, enforce security policies, enable monitoring for resources and ultimately protect the organization from potential compromise. Look at the big picture and try to find the vulnerabilities and misconfigurations that will be reported to the CISO so they can take corrective action and implement a security strategy.
 ### Overview
 This handbook consists of four manuals highlighting the misconfigurations and threats associated with the cloud security challenges within PurpleCloud and show the mitigation/remediation steps from a defensive perspective. A participant should follow this handbook after finishing the offensive part of the project to understand and learn where the flaws are in the Azure resources exposed that allow an attacker to exploit them.
 
@@ -103,9 +103,13 @@ Tip: The configurations can also be accessed via the storage account overview.
 
 ![](https://i.imgur.com/oxKctU3.png)
  
-* To use customer managed keys we can use the already created `enc-key` for this demonstration in the Azure Key Vault and select to use it for the encryption. A new key could be also directly created in the Key Vault if necessary.
+* To use customer managed keys we can use the already created `enc-key` for this demonstration in the Azure Key Vault and select to use it for the encryption. A new key could be also directly created in the Key Vault if necessary. Select `User Assigned` as the Identity type.
 
-![](https://i.imgur.com/frGZC9k.png)
+![](https://i.imgur.com/QCyPPJ6.png)
+
+* The result should look like this:
+
+![](https://i.imgur.com/Ya41rgj.png)
 
 * To block the enumeration of the container we can change the access level from `Container` to `Blob`
 
@@ -133,7 +137,7 @@ Tip: The configurations can also be accessed via the storage account overview.
 
 ![](https://i.imgur.com/jnoFBdQ.png)
 ![](https://i.imgur.com/5Ppc5qF.png)
-* In Sentinel we navigate to `Logs` where we can query the `StorageBlobLogs` table. 
+* In Sentinel we navigate to `Logs` where we can query the `StorageBlobLogs` table. You should change the time range to `Last 24 hours` or later to see some sample logs.
 **Hint: It can take about 5 minutes that logs are ingested in the table. Therefore you can try to access a blob file and come back later to check the logs.**
 
 ![](https://i.imgur.com/0vADqDs.png)
@@ -219,11 +223,11 @@ It includes a command injection vulnerability which can be used by an attacker t
 * After it is connected we can move into configuring the log collection and check if a NGINX custom table is already created
 
 ![](https://i.imgur.com/poEPjrF.png)
-* An table was already created beforehand and will be automatically populated with logs when there are new NGINX logs on the virtual machine. For reference we can check if the table exists
+* A table was already created beforehand and will be automatically populated with logs when there are new NGINX logs on the virtual machine. For reference, we can check if the table exists
 
 ![](https://i.imgur.com/fAXodXD.png)
 * In case it would not be created yet we could follow this reference: [2]. For this we would need to upload a "example-access.log" which can be also found in the Github Repository under "defense_resouces" folder and proceed with further settings. This example file allows to correctly delimit individual events.
-* After some time, we can check the `Logs` in Sentinel and query our table to see the recent log events.
+* After some time, we can check the `Logs` in Sentinel and query our table to see the recent log events. You should change the time range to `Last 24 hours` or later to see some sample logs in case recent ones are not yet ingested.
 
 ![](https://i.imgur.com/4Az6LlJ.png)
 
@@ -312,7 +316,7 @@ Following Challenge 2, the managed identity of the virtual machine provides read
 ![](https://i.imgur.com/IH9etzG.png)
 ![](https://i.imgur.com/HORnF22.png)
 
-* After some time we can see in Sentinel that the logs are correctly ingested and can be further analyzed.
+* After some time we can see in Sentinel that the logs are correctly ingested and can be further analyzed. You should change the time range to `Last 24 hours` or later to see some sample logs in case recent ones are not yet ingested.
 **Hint: It can take about 5 minutes that logs are ingested in the table. Therefore you can try to access a blob file and come back later to check the logs.**
 
 ![](https://i.imgur.com/h5FmPRl.png)
@@ -344,9 +348,9 @@ An API is the main component of this challenge. It handles requests to show user
 
 #### MITIGATE
 * The only mitigation is to establish a secure software development cycle that includes code review. CI/CD can generally be a good start here.
-* To fix the bug as quickly as possible, we remove the if condition in the code and save the file, which the API automatically redeploys.
+* To fix the bug as quickly as possible, we remove the if condition in the code as well as the second if statement and save the file, which the API automatically redeploys.
 
-![](https://i.imgur.com/mkKRH7P.png)
+![](https://i.imgur.com/U2Sl9xx.png)
 * By retesting we can see that any id leads to unauthorized access at the moment
 
 ![](https://i.imgur.com/jv7uqmv.png)
@@ -356,7 +360,7 @@ An API is the main component of this challenge. It handles requests to show user
 
 ![](https://i.imgur.com/wksJJ4T.png)
 ![](https://i.imgur.com/u3Bo2TS.png)
-* We can again verify the logs directly in Sentinel after some time and test cases on the API
+* We can again verify the logs directly in Sentinel after some time and test cases on the API. You should change the time range to `Last 24 hours` or later to see some sample logs in case recent ones are not yet ingested.
 
 ![](https://i.imgur.com/6r8IsQr.png)
 
