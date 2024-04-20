@@ -20,7 +20,7 @@
 * Read ```/webcontent/chat.txt``` to get the following hints:
     * The name of an API endpoint can be found in a log file on a virtual machine (VM) - needed in challenge 4
     * It is possible to access a Key Vault from the VM - needed in challenge 3
-* Visit /webcontent/flag/1.txt to get the flag of this challenge.
+* Visit ```/webcontent/flag/1.txt``` to get the flag of this challenge.
 > PURPLE{PU8L1C_BL08}
 
 ## Challenge 2: FindMe.log
