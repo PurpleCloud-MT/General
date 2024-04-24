@@ -70,19 +70,20 @@ Due to the configuration the container is accessible and can also be enumerated:
 * Directly in the storage account overview, we can see the properties of the resource in a single view and identify misconfigurations:
 
 ![](https://i.imgur.com/LBg2JKd.png)
-* Under `Encryption` we can see that the PurpleCloud organization is using the Microsoft-managed keys for encryption which should be switched to Customer-managed keys if possible to ensure full confidentiality of restricted data:
-
-![](https://i.imgur.com/p3v7866.png)
 * The container `webcontent` can be enumerated, as the anonymous access level is set to "container":
 
 ![](https://i.imgur.com/MtllOo6.png)
+
+* Under `Encryption` we can see that the PurpleCloud organization is using the Microsoft-managed keys for encryption which should be switched to Customer-managed keys if possible to ensure full confidentiality of restricted data:
+
+![](https://i.imgur.com/p3v7866.png)
 
 **Misconfigurations:**
 1. The blob storage is publicly accessible
 2. It is allowing access from all networks
 3. Soft Delete is disabled
-4. Using Microsoft-managed encryption key
-5. Container "webcontent" can be enumerated
+4. Container "webcontent" can be enumerated
+5. Using Microsoft-managed encryption key
 
 ----
 #### > MITIGATE <
