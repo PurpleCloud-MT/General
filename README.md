@@ -18,7 +18,6 @@ The company *PurpleCloud* is hosting a private cloud environment in Microsoft Az
 
 ### Rules
 * The challenges are interconnected so you have to start with challenge 1 and follow the path from there.
-* Please note that although you have access to the Azure tenant, you can only view the resources via the Azure portal once you reach the defensive part. The offensive part can and should be solved by an external black-box approach without the Azure access you received. 
 * You are allowed to use tools but you don't actually need any to solve the challenges.
 * Respect the time limit of 1 hour for this part so we can correctly analyse your progress and compare it fairly with the other participants.
 * You are allowed to look at the solutions (/Solutions/offensive_manual.md) if you are stuck to get further going but if you do that please state that you did in the questionnaire.
