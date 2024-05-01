@@ -19,7 +19,7 @@ The company *PurpleCloud* is hosting a private cloud environment in Microsoft Az
 ### Rules
 * The challenges are interconnected so you have to start with challenge 1 and follow the path from there.
 * You are allowed to use tools but you don't actually need any to solve the challenges.
-* Respect the time limit of 1 hour for this part so we can correctly analyse your progress and compare it fairly with the other participants.
+* Respect the time limit of 1 hour and 20 minutes for this part so we can correctly analyse your progress and compare it fairly with the other participants.
 * You are allowed to look at the solutions (/Solutions/offensive_manual.md) if you are stuck to get further going but if you do that please state that you did in the questionnaire.
 * Due to the time limit, we also want to encourage you to look at the solutions if you are noticing you are taking too much time for a challenge.
 * To solve a challenge, you need to find the according flag(s).
